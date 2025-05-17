@@ -1,0 +1,26 @@
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+  "email": "user@user.com",
+  "password": "password"
+}
+
+### test with fingerprint
+GET http://localhost:3000/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlci5jb20iLCJjdHgiOiIxZTBkZTZlYTM5YzQ4MGRmMTFmNjk5ZDFiYTAwNjNlOTU0NjlmOTc4M2Y3NjM2N2I4Y2UzYjg3MGU2ZjBiNGJmIiwiaWF0IjoxNzQ2Mzc2OTk2LCJleHAiOjE3NDYzNzcwNTZ9.1X0Q5R0kzVSLSyjhfqXWkv2tOaMUG4kTV-p4LtPWdvs
+Cookie: fingerprint=lcu9ph4ob9
+
+
+####
+GET http://localhost:3000/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlci5jb20iLCJpYXQiOjE3NDYzNjQzNTMsImV4cCI6MTc0NjM2NDQxM30.PrilzaW528XKFffhoFo93oIJDNH1-Y55ym8vMqSH34E
+
+### POST, PUT, DELETE, PATCH
+POST http://localhost:3000/protected
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzZXJAdXNlci5jb20iLCJpYXQiOjE3NDYzODE0OTMsImV4cCI6MTc0NjM4MTU1M30.G6GL--LB8M0DOB7-K6mmh9_8ALvy6CpJ1zX_fpn2-ag
+Cookie: csrf-token=1BN6MIucm-BEO28umJle7Xk-I1bWtNHRJ6PUM
+X-CSRF-Token: 1BN6MIucm-BEO28umJle7Xk-I1bWtNHRJ6PUM
+
+###
+POST http://localhost:3000/csrf-token
